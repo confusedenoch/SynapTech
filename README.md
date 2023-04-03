@@ -58,4 +58,4 @@
 <h2>Improving the Model</h2>
 <p>If the model’s performance is not satisfactory, experiment with different preprocessing techniques, feature extraction methods, and neural network architectures. You can also try other machine learning algorithms, such as support vector machines (SVM), random forests, or recurrent neural networks (RNN).</p>
 <h2>Deployment</h2>
-<p>Once you have a satisfactory model, you can deploy it in real-time applications to assist mute or speech-impaired individuals. This will require integrating the model with a real-time EEG data acquisition pipeline and converting the predicted words/sentences into</p>
+<p>Once you have a satisfactory model, you can deploy it in real-time applications to assist mute or speech-impaired individuals. This will require integrating the model with a real-time EEG data acquisition pipeline and converting the predicted words/sentences into speech or text output.This can be achieved using text-to-speech engines or virtual keyboards for real-time communication.</p>
