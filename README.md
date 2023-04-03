@@ -1,97 +1,61 @@
-SynapTech: A Brain-Computer Interface for Language Commands
-SynapTech is an open-source project that aims to provide a Brain-Computer Interface (BCI) for language commands using EEG data. This project includes code for data preprocessing, feature extraction, machine learning model training, and a graphical user interface (GUI) for real-time use. The project uses Python and several libraries, including MNE, pyEEG, BrainFlow, and PyQt.
-
-Getting Started
-To get started with SynapTech, follow these steps:
-
-Clone the repository to your local machine:
-bash
-Copy code
-git clone https://github.com/your_username/SynapTech.git
-Install the required Python libraries listed in requirements.txt:
-undefined
-Copy code
-pip install -r requirements.txt
-
-Download the sample EEG data from [insert link to data source here] and place it in the data directory.
-
-
-
-Run the synaptech.py script to launch the GUI:
-
-
-undefined
-Copy code
-python synaptech.py
-Follow the instructions on the GUI to record EEG data and predict language commands in real-time.
-Usage
-SynapTech’s GUI is designed to be user-friendly and intuitive. Here’s a brief overview of how to use it:
-
-
-Connect your EEG device to your computer and ensure it is properly configured.
-
-
-
-Launch SynapTech by running the synaptech.py script.
-
-
-
-Choose the EEG device and select the channels to use.
-
-
-
-Click the “Record” button to begin recording EEG data.
-
-
-
-Follow the on-screen instructions to perform the language command task.
-
-
-
-After recording sufficient data, click the “Stop” button to stop recording.
-
-
-
-Click the “Predict” button to predict the language command based on the recorded EEG data.
-
-
-
-The predicted language command will be displayed on-screen.
-
-
-
-To record and predict more data, repeat steps 4-8.
-
-
-Contributing
-Contributions to SynapTech are welcome and encouraged! To contribute, follow these steps:
-
-
-Fork the repository to your GitHub account.
-
-
-
-Clone the forked repository to your local machine.
-
-
-
-Create a new branch for your changes:
-
-
-cpp
-Copy code
-git checkout -b my-new-branch
-Make your changes and commit them with a descriptive commit message:
-sql
-Copy code
-git commit -m "Add new feature"
-Push your changes to your forked repository:
-perl
-Copy code
-git push origin my-new-branch
-Create a pull request from your forked repository to the original repository.
-License
-SynapTech is licensed under the MIT License. See the LICENSE file for details.
-
-Acknowledgements
-This project was inspired by the work of [insert names and links to related research here]. We would also like to thank the creators of the libraries used in this project for their excellent work.
+<h1>Brain-Computer Interface (BCI) for Speech-to-Text</h1>
+<p>This project aims to develop a Brain-Computer Interface (BCI) that analyzes an individual’s EEG signals and converts them to words or sentences. The primary goal is to create a brain-to-language program for mute and speech-impaired individuals, as well as facilitate language-heavy tasks such as coding, presentations, and translation.</p>
+<h2>Table of Contents</h2>
+<ul>
+<li><a href="#requirements">Requirements</a></li>
+<li><a href="#installation">Installation</a></li>
+<li><a href="#data-acquisition">Data Acquisition</a></li>
+<li><a href="#preprocessing-and-feature-extraction">Preprocessing and Feature Extraction</a></li>
+<li><a href="#training-and-evaluation">Training and Evaluation</a></li>
+<li><a href="#improving-the-model">Improving the Model</a></li>
+<li><a href="#deployment">Deployment</a></li>
+</ul>
+<h2>Requirements</h2>
+<ul>
+<li>Python 3.x</li>
+<li>MNE</li>
+<li>NumPy</li>
+<li>PyWavelets</li>
+<li>TensorFlow</li>
+<li>scikit-learn</li>
+<li>PyPrep</li>
+<li>Padasip</li>
+</ul>
+<h2>Installation</h2>
+<p>Install Python 3.x and the necessary libraries using pip:</p>
+<pre dir="ltr" class="w-full"><div class="bg-black mb-4 rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-undefined">pip install mne numpy pywt tensorflow scikit-learn pyprep padasip
+</code></div></div></pre>
+<h2>Data Acquisition</h2>
+<ol>
+<li>
+<p>Obtain a reliable and accurate EEG headset that fits your needs and budget. Some popular options include Emotiv EPOC, Muse, and OpenBCI headsets. The headset should have good documentation and API support to facilitate data acquisition.</p>
+</li>
+<li>
+<p>Record labeled EEG data for your specific use case. This data should consist of EEG recordings for different words/sentences, along with their corresponding labels (i.e., the actual words/sentences). You can use the API provided by your EEG headset to record and save the data in a suitable format (e.g., EDF, FIF, or CSV).</p>
+</li>
+</ol>
+<h2>Preprocessing and Feature Extraction</h2>
+<ol>
+<li>
+<p>Load and preprocess the data: Use the <code>load_and_preprocess_eeg_data</code> function to load the raw EEG data from the recorded files and preprocess it. This function applies a series of preprocessing steps, including filtering, artifact removal, ICA, wavelet-based denoising, and adaptive noise cancellation.</p>
+</li>
+<li>
+<p>Extract features: Use the <code>extract_features</code> function to extract relevant features from the preprocessed EEG data. This function calculates power spectral density (PSD) values for different frequency bands (delta, theta, alpha, beta, and gamma) and log-transforms them to create a feature vector for each data segment.</p>
+</li>
+</ol>
+<h2>Training and Evaluation</h2>
+<ol>
+<li>
+<p>Prepare the data for training: Use the <code>prepare_data</code> function to split the feature matrix and labels into training and testing sets. This function also standardizes the features using the StandardScaler from scikit-learn.</p>
+</li>
+<li>
+<p>Train the neural network: Use the <code>train_neural_network</code> function to define and train a neural network model. This function creates a simple feedforward neural network using TensorFlow and trains it using the Adam optimizer and sparse categorical crossentropy loss function. You can adjust the architecture, optimizer, and loss function to suit your specific problem.</p>
+</li>
+<li>
+<p>Evaluate the model: Use the <code>model.evaluate</code> method to evaluate the trained model on the testing set. This will give you an indication of the model’s performance on unseen data.</p>
+</li>
+</ol>
+<h2>Improving the Model</h2>
+<p>If the model’s performance is not satisfactory, experiment with different preprocessing techniques, feature extraction methods, and neural network architectures. You can also try other machine learning algorithms, such as support vector machines (SVM), random forests, or recurrent neural networks (RNN).</p>
+<h2>Deployment</h2>
+<p>Once you have a satisfactory model, you can deploy it in real-time applications to assist mute or speech-impaired individuals. This will require integrating the model with a real-time EEG data acquisition pipeline and converting the predicted words/sentences into</p>
